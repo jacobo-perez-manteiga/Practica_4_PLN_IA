@@ -1,0 +1,132 @@
+Trabajo Práctica - III (Enunciado)
+
+Práctica III
+Este ejercicio práctico se centra en la construcción y el análisis de modelos basados en incrustaciones, redes neuronales recurrentes y transformadores para comprender cómo sus decisiones arquitectónicas afectan la representación de secuencias y el rendimiento general en tareas de lenguaje y datos secuenciales.
+
+----
+
+Requisitos básicos
+
+Jupyter / Colab Notebook para Python.
+Pandas
+Numpy
+Keras y TensorFlow
+Matplotlib
+La clasificación de textos constituye una piedra angular del procesamiento del lenguaje natural (PLN) moderno, ya que actúa como puente esencial entre el lenguaje humano en bruto y no estructurado y los datos procesables, al enseñar a un modelo computacional a reconocer patrones dentro del texto y asignarlos a categorías predefinidas.
+
+---
+
+---
+
+Ejercicio 1 (Incrustaciones)
+
+Las incrustaciones de palabras permiten representar la información textual como vectores numéricos densos que capturan el significado semántico, las relaciones sintácticas y las similitudes contextuales entre palabras. Este ejercicio se centra en la generación y evaluación de incrustaciones de palabras, una técnica fundamental en el procesamiento del lenguaje natural (PLN) moderno.
+
+Paso 1 - Entorno
+
+Crea el cuaderno llamado PW3_E1_GROUP[n ] .ipynb (n es el número de tu grupo) en el servidor de cuadernos que prefieras ( Colab , Jupyter , etc. ).
+Descargar el dataset news_dataset.csv Download news_dataset.csv.
+Explora el conjunto de datos:
+Comprenda cada característica y su distribución.
+Analizar las relaciones entre cada atributo y el atributo objetivo.
+Generar visualizaciones para respaldar las conclusiones obtenidas a partir de ellas.
+Preprocese y transforme los datos para prepararlos para el proceso Skip-Gram (si es necesario):
+Característica selección o extracción.
+Manejo desaparecido valores .
+Codificar variables categóricas si es necesario.
+Escalado o normalización si es necesario.
+IMPORTANTE: Debe justificar las técnicas de limpieza y pretratamiento que ha aplicado.
+
+Paso 2 - Implementación
+
+Genera el diccionario a partir del conjunto de datos de entrenamiento.
+Genera pares de palabras relacionadas utilizando tres tamaños de ventana (2, 3 y 4).
+Desarrolle una red neuronal basada en el modelo Skip-Gram que cumpla con las siguientes especificaciones:
+El tamaño del vector de incrustación debe ser configurable.
+El modelo debe utilizar la entropía cruzada binaria como función de pérdida.
+El algoritmo Adam debe utilizarse para minimizar la función de pérdida.
+Entrenar seis modelos de incrustación con diferentes tamaños (312, 752, 1024) para los diferentes conjuntos de pares de palabras.
+Genere un gráfico que muestre cómo varía la pérdida (error) a lo largo de las épocas para el conjunto de entrenamiento de cada red de incrustación diseñada.
+
+---
+---
+
+Ejercicio 2 (Clasificación)
+
+El ejercicio 2 se centra en el diseño y la evaluación de modelos recurrentes profundos capaces de analizar oraciones para clasificarlas en categorías de noticias utilizando diferentes representaciones de incrustación.
+
+Paso 1 - Entorno preparación
+
+Crea el cuaderno llamado PW3_E2_GROUP[n ] .ipynb (n es el número de tu grupo) en el servidor de cuadernos que prefieras (Colab , Jupyter , etc.).
+Reutilizar el conjunto de datos del corpus de noticias.
+Explora el conjunto de datos:
+Comprenda cada característica y su distribución.
+Analizar las relaciones entre cada atributo y el atributo objetivo.
+Generar visualizaciones para respaldar las conclusiones obtenidas a partir de ellas.
+Preprocese y transforme los datos para prepararlos para la clasificación (si es necesario):
+Característica selección o extracción.
+Manejo valores ausentes.
+Codificar variables categóricas si es necesario.
+Escalado o normalización si es necesario.
+Genera un conjunto de entrenamiento y un conjunto de validación de tu elección. Justifica claramente los criterios que usaste para seleccionar cada subconjunto y explica por qué esta división es apropiada para la tarea.
+IMPORTANTE: Debe justificar las técnicas de limpieza y pretratamiento que ha aplicado.
+
+Paso 2 - Implementación
+
+Selecciona 2 representaciones de incrustación que generaste en el Ejercicio 1.
+No está permitido utilizar ningún elemento externo o preexistente; solo se puede utilizar el trabajo realizado en el ejercicio anterior.
+Explica por qué elegiste esas representaciones de incrustaciones.
+Diseñar dos o tres arquitecturas de aprendizaje profundo diferentes.
+1 modelo debe utilizar exclusivamente capas LSTM.
+1 modelo debe utilizar exclusivamente capas GRU.
+1 modelo debe usar exclusivamente capas Transformers (Opcional).
+Defina diferentes configuraciones utilizando estos hiperparámetros:
+Incrustación de dimensiones.
+Número de capas (capas ocultas).
+Tasa de aprendizaje.
+Entrene el modelo utilizando estas configuraciones para evaluar y comparar el rendimiento en diferentes escenarios.
+Paso 3 - Evaluación y preguntas
+
+Evalúe su modelo con mejor rendimiento utilizando el conjunto de prueba definido previamente, asegurándose de que el resultado cumpla con los siguientes criterios:
+Busca en internet para crear un conjunto de prueba personalizado que conste de 20 fragmentos de noticias breves (titulares o resúmenes cortos). Asegúrate de que el contenido tenga una longitud y un estilo similares a los ejemplos de tu corpus de entrenamiento. Debes incluir una variedad equilibrada de elementos que representen las diferentes categorías objetivo.
+Genera y muestra la matriz de confusión para todo el conjunto de datos de prueba.
+Respuesta el próximo preguntas:
+¿Ha alcanzado su modelo un entrenamiento óptimo? Justifique su respuesta con observaciones relevantes.
+¿Qué revela la matriz de confusión sobre el rendimiento de su modelo? Analice la matriz para evaluar la capacidad de generalización de su modelo.
+¿Qué diferencia en la precisión final observó al cambiar de una representación de incrustación a otra?
+La arquitectura LSTM/GRU reaccionó de forma diferente a los dos tipos de incrustación?
+Documentación
+
+---
+
+---
+
+Crea un documento de investigación, llamado RESEARCH_PW3_GROUP [n].pdf (reemplaza [n] con el número de tu grupo), que resuma el trabajo práctico siguiendo la misma estructura:
+
+La portada incluye los nombres de todos los miembros del grupo junto con el número de grupo.
+Abstract o Resumen.
+Tabla de Contenido.
+Introducción que describe un resumen conciso de los objetivos del PW, centrándose en su objetivo principal en lugar de copiar las instrucciones prácticas de trabajo.
+Descripción del conjunto de datos, incluyendo su estructura y atributos clave.
+Descripción de los diferentes conjuntos de datos generados para entrenar los diferentes modelos (si es necesario).
+Descripción de las técnicas utilizadas para la limpieza, el preprocesamiento y la visualización de los datos (si fuera necesario).
+Descripción del proceso de experimentación llevado a cabo para la formación.
+Respuestas a las preguntas de evaluación.
+Conclusiones que resumen los principales resultados, aprendizajes e implicaciones de los experimentos.
+Referencias (si es necesario).
+Una plantilla de Word está disponible para  Practical_Work_Template_IA-II.docx Download Practical_Work_Template_IA-II.docxaunque su uso es opcional.
+
+---
+
+---
+Normas
+
+El trabajo práctico debe realizarse en grupo.
+El código del cuaderno debe compilarse correctamente; de lo contrario, el trabajo práctico no será evaluado.
+Todos los resultados, tablas y figuras incluidos en el informe deben coincidir con los generados en el cuaderno.
+Todas las cifras incluidas en el informe deben permanecer claramente visibles en todos los niveles de detalle.
+La evaluación del trabajo práctico se basará en la información proporcionada en el informe. El cuaderno sirve como herramienta para generar gráficos, tablas y datos, lo que garantiza que esta información pueda utilizarse eficazmente para la elaboración del informe.
+Está estrictamente prohibido utilizar sistemas de generación de documentos, como Gemini, ChatGPT o herramientas similares, para crear el informe.
+Se deben entregar tres archivos separados: (1) un documento de investigación en formato PDF; y (2) dos archivos de cuaderno. Estos archivos deben estar comprimidos en un archivo llamado PW3_Group_[n].zip. (reemplace [n] con su número de grupo).
+El informe debe tener un máximo de 14 páginas, excluyendo la portada, el resumen, el índice y la bibliografía.
+Es obligatorio incluir comentarios exhaustivos sobre las diferentes operaciones realizadas para la preparación y visualización de datos.
